@@ -1,8 +1,20 @@
 const express = require('express');
 const app = express();
 const path = require("path");
+const bodyParser = require('body-parser')
+
+// const express = require('express');
+// const app = express();
+const vision = require('@google-cloud/vision');
+var cors = require('cors');
+// Creates a client
+const client = new vision.ImageAnnotatorClient({
+  keyFilename: '../SERVICE-KEY.json'
+});
 
 const PORT = process.env.PORT || 8080;
+
+app.use(bodyParser.json())
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -15,6 +27,37 @@ app.get("/", (req, res) => {
       title: "Financial Forest"
   });
 });
+
+let textDetected = [];
+let total = 0;
+
+app.use(cors());
+app.get('/getData', function (req, res) {
+  res.setHeader('Content-Type', 'application/json')
+  let jsonObj = {
+    "Actualtotal" : 0
+  }
+  client
+    .textDetection('./public/img/receipt1.jpeg')
+    .then(results => {
+      const detections = results[0].textAnnotations.slice(1);
+      detections.forEach(function (text) {
+        if (!isNaN(parseInt(text.description))) {
+          total = text.description; // gets the last number on receipt
+        }
+      });
+      jsonObj.Actualtotal = total;
+      console.log('$' + total);
+    })
+    .catch(err => {
+      console.error('ERROR:', err);
+    });
+
+  res.send(
+    jsonObj
+  )
+  
+})
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}...`);
