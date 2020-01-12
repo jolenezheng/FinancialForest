@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 
 app.get("/", (req, res) => {
   res.render("index.html", {
-      title: "Financial Forest"
+    title: "Financial Forest"
   });
 });
 
@@ -35,7 +35,7 @@ app.use(cors());
 app.get('/getData', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
   let jsonObj = {
-    "Actualtotal" : 0
+    "Actualtotal": 0
   }
   client
     .textDetection('./public/img/receipt1.jpeg')
@@ -47,16 +47,16 @@ app.get('/getData', function (req, res) {
         }
       });
       jsonObj.Actualtotal = total;
-      console.log('$' + total);
+      res.send(
+        jsonObj
+      )
     })
     .catch(err => {
       console.error('ERROR:', err);
     });
 
-  res.send(
-    jsonObj
-  )
-  
+
+
 })
 
 app.listen(PORT, () => {
