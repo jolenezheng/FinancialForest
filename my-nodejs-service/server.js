@@ -31,6 +31,10 @@ app.get("/", (req, res) => {
 let textDetected = [];
 let total = 0;
 
+// $('.pay-btn').click(function() {
+//   console.log("!!!!!!!")
+// })
+
 app.use(cors());
 app.get('/getData', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
@@ -38,7 +42,7 @@ app.get('/getData', function (req, res) {
     "Actualtotal": 0
   }
   client
-    .textDetection('./public/img/receipt1.jpeg')
+    .textDetection('./public/img/receipt3.jpeg')
     .then(results => {
       const detections = results[0].textAnnotations.slice(1);
       detections.forEach(function (text) {
