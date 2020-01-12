@@ -13,7 +13,6 @@ app.set('view engine', 'ejs');
 app.get("/", (req, res) => {
   res.render("index.html", {
       title: "Financial Forest"
-      // name: "Jolene Zheng"
   });
 });
 
