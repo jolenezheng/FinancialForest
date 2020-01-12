@@ -29,6 +29,10 @@ $(document).ready(function() {
     $('.pay-btn').click(function() {
         $('#card-1-amt-due').text("Amount Due: $" + (amountDue - parseFloat($('#amt-paid').val())));
         amountDue -= parseFloat($('#amt-paid').val());
+        if (amountDue >= 0) {
+            $('#credit-score').text("Credit Score: 720");
+            $('#forest-img').attr("src", "img/portfolio/block2.png");
+        }
     })
 
     $('input[name=yesno]:checked', '#yesno-form').on('change', function() {
