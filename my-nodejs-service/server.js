@@ -31,10 +31,6 @@ app.get("/", (req, res) => {
 let textDetected = [];
 let total = 0;
 
-// $('.pay-btn').click(function() {
-//   console.log("!!!!!!!")
-// })
-
 app.use(cors());
 app.get('/getData', function (req, res) {
   res.setHeader('Content-Type', 'application/json')
