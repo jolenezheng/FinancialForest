@@ -1,0 +1,20 @@
+{
+    "name": "googleapi",
+    "version": "1.0.0",
+    "description": "",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev": "nodemon my-nodejs-service/server.js -e js,hbs"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@google-cloud/vision": "^0.22.1",
+        "ejs": "^3.0.1",
+        "express": "^4.17.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.2"
+    }
+}
