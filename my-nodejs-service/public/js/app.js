@@ -16,7 +16,7 @@ $(document).ready(function () {
         if (amountDue < 0) {
             amountDue = 0;
         }
-        $('#card-1-amt-due').text("Amount Due: $" + amountDue);
+        $('#card-1-amt-due').text("Amount Due: $" + amountDue.toFixed(2));
         if (amountDue == 0 && prevAmount != 0) {
             $('#credit-score').text("Credit Score: 720");
             $('#forest-img').attr("src", "img/portfolio/block2.png");
@@ -25,14 +25,14 @@ $(document).ready(function () {
     })
 
     $('#yes-btn').click(function () {
-        $('#card-1-amt-due').text("Amount Due: $" + scrapedAmt);
+        $('#card-1-amt-due').text("Amount Due: $" + scrapedAmt.toFixed(2));
         amountDue += scrapedAmt;
         $("#amt-confirmation").css("display", "none");
     })
 
     $('#no-btn').click(function () {
         scrapedAmt = parseFloat($("#resubmit-amt").val());
-        $('#card-1-amt-due').text("Amount Due: $" + scrapedAmt);
+        $('#card-1-amt-due').text("Amount Due: $" + scrapedAmt.toFixed(2));
         amountDue += scrapedAmt;
         $("#amt-confirmation").css("display", "none");
     })
