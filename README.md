@@ -10,10 +10,10 @@ www.financial-forest.appspot.com
 * If it spending is over the limit or it is not paid in time, the sapling is planted in a chopped/withers state to illustrate the permanent impact on credit score/ forest health.
 
 # Demo
-![](1landing.png) 
-![](2forest.png)  
-![](3sapling.png) 
-![](4receipt.png)  
+![](Demo/1landing.png) 
+![](Demo/2forest.png)  
+![](Demo/3sapling.png) 
+![](Demo/4receipt.png)  
 
 # Built
 * Scalable Google App Engine (Host and Publish WebApp) 
