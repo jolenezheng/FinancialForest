@@ -30,7 +30,7 @@ In light of the detrimental impact on our environment from humans causing global
 
 
 # Lessons 
-Clear communication, Shared direction and goal among team,  Version control,  Scalability and extension of products
+Clear communication, Shared direction and goal among team,  Version control,  Scalability and extension of products.
 
 
 # Challenges
